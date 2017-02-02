@@ -1,0 +1,303 @@
+body {
+/*background-image: url("images/Silver-Backdrop.jfif");*/
+background-color: #EF5350;
+
+}
+/*.box1 {
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}*/
+
+/*#444;*/
+footer{
+  background-color: #f39c12;
+  padding-bottom: 150px;
+}
+.nav ul {
+  list-style: none;
+  background-color: rgba(5,5,5,0.3);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+	.heading {
+		width: 40px;
+	}
+
+
+/*#p,#r,#o,#j,#e,#c,#t,#s{*/
+  /*background-color:  rgba(69,0,226,.7);*/
+/*}*/
+
+ #e, #p {
+/*margin-right: 90pt;*/
+padding-left: 5px;
+padding-right: 5px;
+/*background-color:  rgba(69,0,226,.5);*/
+
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+	/*box-shadow: 10px 10px 5px #888888;*/
+
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+
+
+}
+
+#r, #c {
+  /*background-color: #b3094f;*/
+
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;	box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+
+  margin-top: 50px;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+}
+
+#o, #t {
+  /*background-color: white;*/
+
+  /*background-color: #b3094f;*/
+  padding-left: 5px;
+  padding-right: 5px;
+	margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+	box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+}
+
+#j, #s {
+  /*background-color: rgb(50,190,255);*/
+
+  /*background-color: #4500e2;*/
+
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+	box-shadow: 10px 10px 5px #888888;
+  /*text-align: center;*/
+  margin-top: 50px;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+}
+
+/*#game {
+  background-image: url("  <img class="img-circle" src="images/collect4.jpg" alt="Board Game " height="300px"/>");
+}*/
+/*.img-circle {
+  content: attr("BLUE");*/
+/*
+#project{
+
+  margin-top: 30px;
+  color:black;
+
+
+
+}*/
+.gameSummary{
+
+	color: orange;
+}
+
+
+
+/*p { color: #ffffff;  }*/
+
+/*-=-=-=-=-=-=-=-=-=-*/
+/* Column Grids */
+/*-=-=-=-=-=-=-=-=-= */
+
+.col_half { width: 0%; }
+.col_third { width: 0%; }
+.col_fourth { width: 23.5%; }
+.col_fifth { width: 18.4%; }
+.col_sixth { width: 15%; }
+.col_three_fourth { width: 74.5%;}
+.col_twothird{ width: 66%;}
+.col_half,
+.col_third,
+.col_twothird,
+.col_fourth,
+.col_three_fourth,
+.col_fifth{
+	position: relative;
+	display:inline;
+	display: inline-block;
+	float: left;
+	margin-right: 2%;
+	margin-bottom: 20px;
+}
+.end { margin-right: 0 !important; }
+
+/*-=-=-=-=-=-=-=-=-=-=- */
+/* Flip Panel */
+/*-=-=-=-=-=-=-=-=-=-=- */
+
+
+/*.panel {
+	margin: 0 auto;
+	height: 30px;
+	position: relative;
+	-webkit-perspective: 600px;
+	-moz-perspective: 600px;
+}*/
+
+.panel .front,
+.panel .back {
+	/*text-align: center;*/
+	top: 40;
+	position: absolute;
+}
+
+.panel .front {
+	height: inherit;
+	top: 0
+	z-index: 900;
+	text-align: center;
+	-webkit-transform: rotateX(0deg) rotateY(0deg);
+	   -moz-transform: rotateX(0deg) rotateY(0deg);
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	-webkit-transition: all .4s ease-in-out;
+	   -moz-transition: all .4s ease-in-out;
+		-ms-transition: all .4s ease-in-out;
+		 -o-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+}
+
+.panel .back {
+	height: inherit;
+	position: absolute;
+	z-index: 1000;
+	-webkit-transform: rotateY(-180deg);
+	   -moz-transform: rotateY(-180deg);
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	-webkit-transition: all .4s ease-in-out;
+	   -moz-transition: all .4s ease-in-out;
+		-ms-transition: all .4s ease-in-out;
+		 -o-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+}
+.panel.flip .front {
+	z-index: 900;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+}
+.panel.flip .back {
+	z-index: 1000;
+	-webkit-transform: rotateX(0deg) rotateY(0deg);
+	-moz-transform: rotateX(0deg) rotateY(0deg);
+}
+.box1 .img-circle{
+  margin-left: 150px;
+
+	background-color: rgba(10,5,10,0.8 );
+	width: 250px;
+	height: 130px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+  	/*box-shadow: 10px 10px 5px #888888;*/
+}
+.col-sm-3{
+  padding-bottom: 120px;
+}
+
+.box2{
+	background-color: rgb(101,150,255);
+  width: 250px;
+	height: 130px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+  /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+div{
+  background-color: rgb (0,249,255);
+}*/
+.8ball {
+  background-color: rgb (143, 246, 255);
+}

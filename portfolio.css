@@ -1,0 +1,109 @@
+#head {
+
+  text-align: center;
+  font-family: 'Calligraffitti', cursive;
+}
+/*.tools{
+  background-color: rgb(255, 250, 250);
+  padding: 30px;
+  padding-left: 250px;
+  padding-right: 250px;
+}*/
+
+#linkedIn{
+  margin-left: 0px;
+}
+
+p{
+
+  color: white;
+  padding-top: 30px;
+
+
+  font-size: 25px;
+  font-family: 'Arsenal', sans-serif;
+/*font-family: 'Belleza', sans-serif;
+  font-family: 'Over the Rainbow', cursive;*/
+  z-index: 2;
+}
+#map{
+  float: left;
+  margin-top: 70px;
+}
+body{
+  background-image: url("images/bk.jpg");
+}
+
+
+
+
+
+nav {
+  text-align: center;
+  font-size: 15px;
+  color: blue;
+}
+
+
+body {
+  /*background-image: url("images/faded.jpg");*/
+
+  margin: 0;
+  padding: 0;
+  /*background: #ccc;*/
+}
+
+.nav ul {
+  list-style: none;
+  background-color: rgba(255, 200, 300, 0.5);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+
+
+
+
+
+
+  /*background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTrseRzcmzakfYAkbyGbeDt3pJM_jH9J2vUhjdsw0JktNBjyBm00A")  width:100%; height:100%;*/

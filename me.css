@@ -1,0 +1,81 @@
+
+body{
+  width: 100%;
+  height: 100%;
+  background-image: url("images/downtown.jpg");
+  background-position: center;
+}
+/*body {
+background-image: url("arlee2.jpg");
+background-size: cover;
+margin: 0;
+padding: 0;
+}*/
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  text-align: center;
+  background-color: rgba(255, 0, 250, 0.5);
+  color: lightpink;
+}
+.btn{
+  margin-bottom: 10px;
+}
+.col-sm-12{
+color:  white;
+text-align: center;
+}
+
+nav {
+  text-align: center;
+  font-size: 15px;
+  color: blue;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: rgba(250, 100, 200, 0.5);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
