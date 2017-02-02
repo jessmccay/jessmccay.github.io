@@ -38,8 +38,9 @@ header {
   back
   color: lightpink;
 }
-.btn{
-  margin-bottom: 10px;
+.btn-primary {
+  /*margin-bottom: 10px;*/
+  background-color: #1abc9c;
 }
 .col-sm-12{
 color:  white;
@@ -75,7 +76,7 @@ nav {
 }
 
 .nav a:hover {
-  background-color: #005f5f;
+  background-color: #1abc9c;
 }
 
 .nav a.active {
@@ -111,9 +112,11 @@ nav {
     margin-left: 0px;
   }
   .projects{
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     padding-top: 100px;
+    padding-left: 10%;
     background-color: #1abc9c;
+
   }
   footer{
     background-color: white;
@@ -260,9 +263,9 @@ nav {
   /*.col-sm-3{
     padding-bottom: 120px;
   }*/
-
+/*rgb(101,150,255)*/
   .box2{
-  	background-color: rgb(101,150,255);
+  	background-color: white;
     width: 250px;
   	height: 130px;
   	margin: 0 auto;
