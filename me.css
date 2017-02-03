@@ -148,132 +148,73 @@ nav {
     margin-top: 70px;
   }
 
-  .boxes{
+  /* entire container, keeps perspective */
+  .flip-container {
+  	perspective: 1000px;
 
-  	color: orange;
+  }
+  	/* flip the pane when hovered */
+  	.flip-container:hover .flipper, .flip-container.hover .flipper {
+  		transform: rotateY(180deg);
+  	}
+
+  .flip-container, .front, .back {
+  	width: 320px;
+  	height: 480px;
+
   }
 
+  /* flip speed goes here */
+  .flipper {
+  	transition: 0.6s;
+  	transform-style: preserve-3d;
 
-
-  /*p { color: #ffffff;  }*/
-
-  /*-=-=-=-=-=-=-=-=-=-*/
-  /* Column Grids */
-  /*-=-=-=-=-=-=-=-=-= */
-
-  .col_half { width: 0%; }
-  .col_third { width: 0%; }
-  .col_fourth { width: 23.5%; }
-  .col_fifth { width: 18.4%; }
-  .col_sixth { width: 15%; }
-  .col_three_fourth { width: 74.5%;}
-  .col_twothird{ width: 66%;}
-  .col_half,
-  .col_third,
-  .col_twothird,
-  .col_fourth,
-  .col_three_fourth,
-  .col_fifth{
   	position: relative;
-  	display:inline;
-  	display: inline-block;
-  	float: left;
-  	margin-right: 2%;
-  	margin-bottom: 20px;
   }
-  .end { margin-right: 0 !important; }
 
-  /*-=-=-=-=-=-=-=-=-=-=- */
-  /* Flip Panel */
-  /*-=-=-=-=-=-=-=-=-=-=- */
+  /* hide back of pane during swap */
+  .front, .back {
+  	backface-visibility: hidden;
+    border-style: groove;
+    border-width: medium;
 
 
-  /*.panel {
-  	margin: 0 auto;
-  	height: 30px;
-  	position: relative;
-  	-webkit-perspective: 600px;
-  	-moz-perspective: 600px;
-  }*/
 
-  .panel .front,
-  .panel .back {
-  	/*text-align: center;*/
-  	top: 40;
   	position: absolute;
+  	top: 0;
+  	left: 0;
+  }
+  #ball{
+    background-image: url("images/magic8ball.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #landmark{
+    background-image: url("images/landmark.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #battle{
+    background-image: url("images/battleship.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #highway{
+    background-image: url("images/highway.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* front pane, placed above back */
+  .front {
+  	z-index: 2;
+  	/* for firefox 31 */
+  	transform: rotateY(0deg);
   }
 
-  .panel .front {
-  	height: inherit;
-  	top: 0
-  	z-index: 900;
-  	text-align: center;
-  	-webkit-transform: rotateX(0deg) rotateY(0deg);
-  	   -moz-transform: rotateX(0deg) rotateY(0deg);
-  	-webkit-transform-style: preserve-3d;
-  	   -moz-transform-style: preserve-3d;
-  	-webkit-backface-visibility: hidden;
-  	   -moz-backface-visibility: hidden;
-  	-webkit-transition: all .4s ease-in-out;
-  	   -moz-transition: all .4s ease-in-out;
-  		-ms-transition: all .4s ease-in-out;
-  		 -o-transition: all .4s ease-in-out;
-  			transition: all .4s ease-in-out;
-  }
-
-  .panel .back {
-  	height: inherit;
-  	position: absolute;
-  	z-index: 1000;
-  	-webkit-transform: rotateY(-180deg);
-  	   -moz-transform: rotateY(-180deg);
-  	-webkit-transform-style: preserve-3d;
-  	   -moz-transform-style: preserve-3d;
-  	-webkit-backface-visibility: hidden;
-  	   -moz-backface-visibility: hidden;
-  	-webkit-transition: all .4s ease-in-out;
-  	   -moz-transition: all .4s ease-in-out;
-  		-ms-transition: all .4s ease-in-out;
-  		 -o-transition: all .4s ease-in-out;
-  			transition: all .4s ease-in-out;
-  }
-  .panel.flip .front {
-  	z-index: 900;
-  	-webkit-transform: rotateY(180deg);
-  	-moz-transform: rotateY(180deg);
-  }
-  .panel.flip .back {
-  	z-index: 1000;
-  	-webkit-transform: rotateX(0deg) rotateY(0deg);
-  	-moz-transform: rotateX(0deg) rotateY(0deg);
-  }
-  .box1 .img-circle{
-    margin-left: 150px;
-
-  	background-color: rgba(10,5,10,0.8 );
-  	width: 250px;
-  	height: 130px;
-  	margin: 0 auto;
-  	padding: 10px;
-  	border-radius: 10px;
-  	-moz-border-radius: 10px;
-  	-webkit-border-radius: 10px;
-    	/*box-shadow: 10px 10px 5px #888888;*/
-  }
-  /*.col-sm-3{
-    padding-bottom: 120px;
-  }*/
-/*rgb(101,150,255)*/
-  .box2{
-  	background-color: white;
-    width: 250px;
-  	height: 130px;
-  	margin: 0 auto;
-  	padding: 20px;
-  	border-radius: 10px;
-  	-moz-border-radius: 10px;
-  	-webkit-border-radius: 10px;
-    /*box-shadow: 10px 10px 5px #888888;*/
+  /* back, initially hidden pane */
+  .back {
+  	transform: rotateY(180deg);
+    background-color: white;
   }
 
   .8ball {
