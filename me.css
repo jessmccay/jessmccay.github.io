@@ -1,10 +1,11 @@
 
 body{
-  width: 100%;
-  height: 100%;
+
+
   background-image: url("images/downtown.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  width: auto;
 }
 .img-circle{
   float: right;
@@ -14,6 +15,7 @@ body{
 #homeHeading{
   font-size: 40pt;
   font-family: 'Julius Sans One', sans-serif;
+  background-size: cover;
 /*font-family: 'Economica', sans-serif;
 font-family: 'Arsenal', sans-serif;*/
 
@@ -30,13 +32,12 @@ margin: 0;
 padding: 0;
 }*/
 header {
-  position: relative;
-  width: 100%;
-  min-height: auto;
+    background-color: rgba(255, 0, 250, 0.5);
+  background-size: cover;
   text-align: center;
-  background-color: rgba(255, 0, 250, 0.5);
-  back
-  color: lightpink;
+  background-position: left;
+
+
 }
 .btn-primary {
   /*margin-bottom: 10px;*/
@@ -89,8 +90,8 @@ nav {
   .nav li {
     width: 120px;
     border-bottom: none;
-    height: 50px;
-    line-height: 50px;
+    /*height: 50px;
+    line-height: 50px;*/
     font-size: 1.4em;
   }
 
@@ -108,9 +109,6 @@ nav {
     padding-right: 250px;
   }*/
 
-  #linkedIn{
-    margin-left: 0px;
-  }
   .projects{
     padding-bottom: 200px;
     padding-top: 100px;
@@ -121,6 +119,7 @@ nav {
   footer{
     background-color: white;
     text-align: center;
+    background-size: cover;
   }
   #bio{
 
@@ -143,10 +142,10 @@ nav {
 
 
   }
-  #map{
+  /*#map{
     float: left;
     margin-top: 70px;
-  }
+  }*/
 
   /* entire container, keeps perspective */
   .flip-container {
