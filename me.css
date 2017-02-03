@@ -5,7 +5,7 @@ body{
   background-image: url("images/downtown.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: auto;
+
 }
 .img-circle{
   float: right;
@@ -33,10 +33,11 @@ padding: 0;
 }*/
 header {
     background-color: rgba(255, 0, 250, 0.5);
-  background-size: cover;
-  text-align: center;
-  background-position: left;
 
+  text-align: center;
+
+  margin-left: 0px;
+  margin-right: 0px;
 
 }
 .btn-primary {
@@ -112,14 +113,15 @@ nav {
   .projects{
     padding-bottom: 200px;
     padding-top: 100px;
-    padding-left: 10%;
+    /*padding-left: 10%;*/
     background-color: #1abc9c;
 
   }
   footer{
     background-color: white;
     text-align: center;
-    background-size: cover;
+    margin-top: 900px;
+    /*background-size: cover;*/
   }
   #bio{
 
@@ -133,7 +135,7 @@ nav {
     font-family: 'Arsenal', sans-serif;
   /*font-family: 'Belleza', sans-serif;
     font-family: 'Over the Rainbow', cursive;*/
-    margin-bottom: 50px;
+    margin-bottom: 110px;
     margin-top: 40px;
 
     border-style: inset;
@@ -151,6 +153,31 @@ nav {
   .flip-container {
   	perspective: 1000px;
 
+    margin-bottom: : 200px;
+
+
+  }
+
+
+  #ship{
+    /*margin-right: 5%;*/
+    margin-left: 25%;
+    float: left;
+  }
+  #high{
+      margin-left: 5%;
+      /*float: left;*/
+  }
+  #land{
+    /*margin-right: 10%;*/
+    /*margin-left: 14%;*/
+    float: right;
+  }
+  #magic{
+    margin-right: 10%;
+    margin-left: 5%;
+    float: right;
+    /*margin-right: 25%*/
   }
   	/* flip the pane when hovered */
   	.flip-container:hover .flipper, .flip-container.hover .flipper {
@@ -158,8 +185,10 @@ nav {
   	}
 
   .flip-container, .front, .back {
-  	width: 320px;
-  	height: 480px;
+  	width:120px;
+    height: 240px;
+
+
 
   }
 
@@ -177,8 +206,6 @@ nav {
     border-style: groove;
     border-width: medium;
 
-
-
   	position: absolute;
   	top: 0;
   	left: 0;
@@ -187,11 +214,13 @@ nav {
     background-image: url("images/magic8ball.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    float: left;
   }
   #landmark{
     background-image: url("images/landmark.png");
     background-repeat: no-repeat;
     background-size: cover;
+    float: right;
   }
   #battle{
     background-image: url("images/battleship.jpg");
@@ -214,6 +243,7 @@ nav {
   .back {
   	transform: rotateY(180deg);
     background-color: white;
+
   }
 
   .8ball {
