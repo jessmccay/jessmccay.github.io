@@ -12,9 +12,9 @@ body{
   background-image: url("images/floor.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.8;
+  opacity: 0.5;
   color: rgb(26, 188,	156);
-}
+}*/
 .img-circle{
   float: right;
   margin-right: 30px;
@@ -23,18 +23,19 @@ body{
 #homeHeading{
   font-size: 40pt;
   font-weight: bold;
-  font-family: 'Julius Sans One', sans-serif;*/
+  font-family: 'Julius Sans One', sans-serif;
 
 
 /*font-family: 'Economica', sans-serif;
 font-family: 'Arsenal', sans-serif;*/
 
 
-/*}
+}
 
-.headdd{*/
+
+.headdd{
   /*background-color: rgba(0, 0,	0,0.5);*/
-  /*margin-left: 500px;
+  margin-left: 500px;
   margin-right: 500px;
 
 
@@ -42,7 +43,7 @@ font-family: 'Arsenal', sans-serif;*/
 
 #webdev{
   font-size: 20pt;
-}*/
+}
 /*body {
 background-image: url("arlee2.jpg");
 background-size: cover;
@@ -58,17 +59,39 @@ padding: 0;
   margin-left: 0px;
   margin-right: 0px;
 
-}
-.btn-primary {*/
+}*/
+.btn-primary {
   /*margin-bottom: 10px;*/
-  /*background-color: #1abc9c !important;
+  background-color: #1abc9c !important;
 }
 .col-sm-12{
-color:  white;
+color:  blue;
 text-align: center;
 }
 
-nav {
+#bio{
+
+  color:black;
+  /*padding-top: 30px;*/
+  /*padding-right: 120px;
+  padding-left: 200px;*/
+  padding-bottom: 120px;
+  background-color: rgba(26, 188,	156,0.5);
+  font-size: 25px;
+  font-family: 'Arsenal', sans-serif;
+/*font-family: 'Belleza', sans-serif;
+  font-family: 'Over the Rainbow', cursive;*/
+  margin-bottom: 110px;
+  margin-top: 40px;
+
+  border-style: inset;
+  border-width: thick;
+  border-color: #1abc9c;
+
+
+}
+
+/*nav {
   text-align: center;
   font-size: 15px;
   color: blue;
@@ -128,143 +151,14 @@ nav {
     padding-left: 250px;
     padding-right: 250px;
   }*/
-
-  .projects{
-    padding-bottom: 150px;
-    padding-top: 150px;
-    /*padding-left: 10%;*/
-    background-color: rgba(26, 188,	156,0.5)
-
+  .boxes{
+    color: black;
   }
+
+
   footer{
     background-color: white;
     text-align: center;
     margin-top: 900px;
     /*background-size: cover;*/
-  }
-  #bio{
-
-    color:black;
-    /*padding-top: 30px;*/
-    /*padding-right: 120px;
-    padding-left: 200px;*/
-    padding-bottom: 120px;
-    background-color: rgba(26, 188,	156,0.5);
-    font-size: 25px;
-    font-family: 'Arsenal', sans-serif;
-  /*font-family: 'Belleza', sans-serif;
-    font-family: 'Over the Rainbow', cursive;*/
-    margin-bottom: 110px;
-    margin-top: 40px;
-
-    border-style: inset;
-    border-width: thick;
-    border-color: #1abc9c;
-
-
-  }
-  /*#map{
-    float: left;
-    margin-top: 70px;
-  }*/
-
-  /* entire container, keeps perspective */
-  .flip-container {
-  	perspective: 1000px;
-
-    margin-bottom: : 200px;
-
-
-  }
-
-
-  #ship{
-    /*margin-right: 5%;*/
-    margin-left: 25%;
-    float: left;
-  }
-  #high{
-      margin-left: 5%;
-      /*float: left;*/
-  }
-  #land{
-    /*margin-right: 10%;*/
-    /*margin-left: 14%;*/
-    float: right;
-  }
-  #magic{
-    margin-right: 15%;
-    margin-left: 5%;
-    float: right;
-    /*margin-right: 25%*/
-  }
-  	/* flip the pane when hovered */
-  	.flip-container:hover .flipper, .flip-container.hover .flipper {
-  		transform: rotateY(180deg);
-  	}
-
-  .flip-container, .front, .back {
-  	width:140px;
-    height: 290px;
-
-
-
-  }
-
-  /* flip speed goes here */
-  .flipper {
-  	transition: 0.6s;
-  	transform-style: preserve-3d;
-
-  	position: relative;
-  }
-
-  /* hide back of pane during swap */
-  .front, .back {
-  	backface-visibility: hidden;
-    border-style: groove;
-    border-width: medium;
-
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  }
-  #ball{
-    background-image: url("images/magic8ball.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: left;
-  }
-  #landmark{
-    background-image: url("images/landmark.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    float: right;
-  }
-  #battle{
-    background-image: url("images/battleship.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  #highway{
-    background-image: url("images/highway.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  /* front pane, placed above back */
-  .front {
-  	z-index: 2;
-  	/* for firefox 31 */
-  	transform: rotateY(0deg);
-  }
-
-  /* back, initially hidden pane */
-  .back {
-  	transform: rotateY(180deg);
-    background-color: white;
-
-  }
-
-  .8ball {
-    background-color: rgb (143, 246, 255);
   }
