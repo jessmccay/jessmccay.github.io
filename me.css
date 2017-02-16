@@ -1,29 +1,25 @@
 
 .img-circle{
   float: right;
-  margin-right: 30px;
-  margin-top: 40px;
+
 }
-#homeHeading{
+
+.button{
+  margin-top: 100px;
+}
+/*#homeHeading{
   font-size: 40pt;
   font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
-
+*/
 
 /*font-family: 'Economica', sans-serif;
 font-family: 'Arsenal', sans-serif;*/
 
 
-}
+/*}*/
 
 
-.headdd{
-  /*background-color: rgba(0, 0,	0,0.5);*/
-  margin-left: 500px;
-  margin-right: 500px;
-
-
-}
 
 #webdev{
   font-size: 20pt;
@@ -45,28 +41,34 @@ padding: 0;
 
 }*/
 
-.col-sm-12{
-color:  blue;
-text-align: center;
-}
+
 
 #bio{
 
   color:white;
-  padding: 100px;
-  background-color: rgba(250, 250,	156,0.3);
-  font-size: 25px;
-  font-family: 'Arsenal', sans-serif;
+  /*float:left;*/
+  text-align: right;
+  /*text-align: left;*/
+  padding-bottom: 150px;
+  margin-top: 150px;
+  /*background-color: rgba(250, 250,	156,0.3);*/
+  font-size: 20px;
+  /*font-family: 'Arsenal', sans-serif;*/
 /*font-family: 'Belleza', sans-serif;
   font-family: 'Over the Rainbow', cursive;*/
-  margin-bottom: 110px;
-  margin-top: 40px;
+
+
 
   /*border-style: inset;
   border-width: thick;
   border-color: #1abc9c;*/
 
 
+}
+
+
+.ball{
+  height: 200pt;
 }
 
 /*nav {
@@ -130,8 +132,19 @@ text-align: center;
     padding-right: 250px;
   }*/
   .boxes{
-    color: black;
+    color: gray;
   }
+
+
+
+#twitter {
+  margin-top: 90px;
+}
+
+#linked, #email {
+  margin-top: 40px;
+}
+
 
 
   footer{
