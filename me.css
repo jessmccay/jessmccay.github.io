@@ -1,20 +1,16 @@
-
-
-.img-circle{
-  float: right;
-
-}
-
 .button{
   margin-top: 100px;
 }
 
  #bio{
   line-height: 230% !important;
-  color:white;
-  text-align: right;
-  margin-right: 20px;
+  color:hotpink;
+  margin: 5px 20px 20px 20px;
   font-size: 20px;
+  border-style: ridge;
+  border-color: lightgreen orange lightgreen pink;
+  border-width: medium;
+  background-color: white;
 }
 
 
