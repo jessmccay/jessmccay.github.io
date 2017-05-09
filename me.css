@@ -2,8 +2,12 @@
   margin-top: 100px;
 }
 
+.img {
+  max-height: 300px;
+}
+
 .ball {
-  max-height: 400px;
+  height: 300px;
 }
 
  #bio{
@@ -31,7 +35,7 @@
 
   .boxes{
     color: gray !important;
-    max-height: 50px !important;
+    /*max-height: 50px !important;*/
   }
 
 
