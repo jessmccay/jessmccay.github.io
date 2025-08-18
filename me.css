@@ -28,11 +28,6 @@
   font-size: 20pt;
 
 
-/*
-.ball{
-  height: 200pt;
-}*/
-
   .boxes{
     color: gray !important;
     /*max-height: 50px !important;*/
@@ -47,8 +42,9 @@
 
 
   footer{
-    background-color: white;
+    background-color: red;
     text-align: center;
     margin-top: 900px;
     /*background-size: cover;*/
   }
+}

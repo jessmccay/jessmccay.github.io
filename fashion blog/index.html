@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jessica Gets Dressed — Personal Style & Life</title>
+  <meta name="description" content="Jessica's personal style journal: outfits, beauty, travel, and life updates." />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E👗%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ================= NAV ================= -->
+  <header class="site-header" aria-label="Primary">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Jessica home">Jessica Gets Dressed</a>
+      <nav class="nav" aria-label="Main Navigation">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu" id="navToggle" title="Toggle menu">
+          <span class="sr-only">Menu</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <ul id="navMenu" class="nav__menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#blog">Journal</a></li>
+          <li><a href="#outfits">Outfits</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#newsletter">Subscribe</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main id="home" tabindex="-1">
+    <section class="hero">
+      <picture>
+        <!-- Large screens -->
+        <source media="(min-width: 1024px)" srcset="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop" />
+        <!-- Tablets -->
+        <source media="(min-width: 640px)" srcset="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1400&auto=format&fit=crop" />
+        <!-- Phones -->
+        <img src="https://images.unsplash.com/photo-1520975682031-ea2d2f3e9e9c?q=80&w=1000&auto=format&fit=crop" alt="Jessica posing in a chic street-style outfit" />
+      </picture>
+      <div class="hero__content container">
+        <h1>Hi, I’m <span>Jessica</span>.</h1>
+        <p>Personal style, low‑effort outfits, and life in motion.</p>
+        <a href="#blog" class="btn btn--primary">Read the Journal</a>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section container about">
+      <div class="about__media">
+        <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=900&auto=format&fit=crop" alt="Portrait of Jessica in neutral tones" />
+      </div>
+      <div class="about__text">
+        <h2>About Jessica</h2>
+        <p>I’m Jessica—Montana‑raised, Detroit‑based. I share wearable outfits, travel notes, and things I actually use. Expect denim, boots, and a little polish.</p>
+        <a class="btn" href="#contact">Say hello</a>
+      </div>
+    </section>
+
+    <!-- ================= JOURNAL GRID ================= -->
+    <section id="blog" class="section bg-light">
+      <div class="container">
+        <div class="section__head">
+          <h2>Latest Journal</h2>
+          <a class="link" href="#">View all posts →</a>
+        </div>
+        <div class="grid posts">
+          <!-- Card 1 -->
+          <article class="card post">
+            <a href="#" class="card__media">
+              <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=1200&auto=format&fit=crop" alt="Neutral outfit with trench and denim" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title"><a href="#">Five Easy Outfits for Early Fall</a></h3>
+              <p class="card__meta">Aug 18, 2025 · 4 min read · Outfits</p>
+              <p class="card__excerpt">Transitional layers, practical shoes, and a palette that always works.</p>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="card post">
+            <a href="#" class="card__media">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop" alt="Close-up of beauty products on a marble tray" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title"><a href="#">Beauty Staples I Actually Repurchase</a></h3>
+              <p class="card__meta">Aug 10, 2025 · 3 min read · Beauty</p>
+              <p class="card__excerpt">Simple, effective, and under $30 where possible.</p>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="card post">
+            <a href="#" class="card__media">
+              <img src="https://images.unsplash.com/photo-1509624776920-0fac24a9dfda?q=80&w=1200&auto=format&fit=crop" alt="Weekend travel bag and boots" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title"><a href="#">48 Hours in Missoula</a></h3>
+              <p class="card__meta">Jul 28, 2025 · 5 min read · Travel</p>
+              <p class="card__excerpt">Coffee, river paths, and the best casual meals.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOOKBOOK / OUTFITS ================= -->
+    <section id="outfits" class="section container">
+      <div class="section__head">
+        <h2>Outfit Lookbook</h2>
+        <div class="filters" role="group" aria-label="Filter outfits">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="casual">Casual</button>
+          <button class="chip" data-filter="work">Work</button>
+          <button class="chip" data-filter="evening">Evening</button>
+        </div>
+      </div>
+      <div class="grid lookbook" id="lookbook">
+        <figure class="look" data-tags="casual">
+          <img src="https://images.unsplash.com/photo-1516595435235-9643b2e6f52a?q=80&w=1200&auto=format&fit=crop" alt="Casual jeans and sweater" />
+          <figcaption>Weekend Casual</figcaption>
+        </figure>
+        <figure class="look" data-tags="work">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Tailored blazer and trousers" />
+          <figcaption>Workwear Basics</figcaption>
+        </figure>
+        <figure class="look" data-tags="evening">
+          <img src="https://images.unsplash.com/photo-1518231782848-95b9b8f2efce?q=80&w=1200&auto=format&fit=crop" alt="Little black dress evening look" />
+          <figcaption>Evening Minimal</figcaption>
+        </figure>
+        <figure class="look" data-tags="casual">
+          <img src="https://images.unsplash.com/photo-1503342394121-480d046d4a2d?q=80&w=1200&auto=format&fit=crop" alt="Denim jacket and tee" />
+          <figcaption>Denim Days</figcaption>
+        </figure>
+        <figure class="look" data-tags="work">
+          <img src="https://images.unsplash.com/photo-1520973774080-9f2a9e73b13f?q=80&w=1200&auto=format&fit=crop" alt="Monochrome office set" />
+          <figcaption>Monochrome Office</figcaption>
+        </figure>
+        <figure class="look" data-tags="evening">
+          <img src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?q=80&w=1200&auto=format&fit=crop" alt="Satin skirt and heels" />
+          <figcaption>Satin & Heels</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= SHOP / LINKS ================= -->
+    <section id="shop" class="section bg-light">
+      <div class="container">
+        <div class="section__head">
+          <h2>Shop Jessica’s Picks</h2>
+          <p class="muted">Non‑affiliate demo links for placeholders.</p>
+        </div>
+        <div class="grid shop">
+          <a class="card product" href="#" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Black ankle boots" />
+            <div class="card__body">
+              <h3 class="card__title">Black Ankle Boots</h3>
+              <p class="price">$120</p>
+            </div>
+          </a>
+          <a class="card product" href="#" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1515541965488-0edf79f7cf84?q=80&w=1200&auto=format&fit=crop" alt="Structured blazer" />
+            <div class="card__body">
+              <h3 class="card__title">Structured Blazer</h3>
+              <p class="price">$150</p>
+            </div>
+          </a>
+          <a class="card product" href="#" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1516642499105-492ff3ac521b?q=80&w=1200&auto=format&fit=crop" alt="Classic denim" />
+            <div class="card__body">
+              <h3 class="card__title">Classic Denim</h3>
+              <p class="price">$89</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEWSLETTER ================= -->
+    <section id="newsletter" class="section container newsletter">
+      <div class="newsletter__inner">
+        <h2>Join the List</h2>
+        <p>Monthly outfit ideas and practical style notes—no spam.</p>
+        <form class="form" id="signupForm" novalidate>
+          <label class="sr-only" for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+          <p id="formMsg" class="form__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= INSTAGRAM STRIP ================= -->
+    <section aria-label="Instagram previews" class="insta">
+      <a href="#" class="insta__item"><img alt="Outfit mirror selfie" src="https://images.unsplash.com/photo-1535525153412-5a42439a0a16?q=80&w=1400&auto=format&fit=crop" /></a>
+      <a href="#" class="insta__item"><img alt="Flatlay of accessories" src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?q=80&w=1400&auto=format&fit=crop" /></a>
+      <a href="#" class="insta__item"><img alt="Cozy knit details" src="https://images.unsplash.com/photo-1467043198406-dc953a3defc5?q=80&w=1400&auto=format&fit=crop" /></a>
+      <a href="#" class="insta__item"><img alt="Street style walking" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1400&auto=format&fit=crop" /></a>
+      <a href="#" class="insta__item"><img alt="Beauty vanity" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" /></a>
+      <a href="#" class="insta__item"><img alt="Weekend bag" src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?q=80&w=1400&auto=format&fit=crop" /></a>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3 class="brand brand--small">Jessica Gets Dressed</h3>
+        <p class="muted">Personal style & life journal.</p>
+      </div>
+      <form class="contact" onsubmit="return false;">
+        <label for="msg" class="sr-only">Message</label>
+        <textarea id="msg" rows="3" placeholder="Send a note…"></textarea>
+        <button class="btn">Send</button>
+      </form>
+      <ul class="social">
+        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+        <li><a href="#" aria-label="YouTube">YouTube</a></li>
+      </ul>
+    </div>
+    <div class="container footer__legal">
+      <small>© <span id="year"></span> Jessica. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

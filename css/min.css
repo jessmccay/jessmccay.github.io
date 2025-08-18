@@ -48,6 +48,11 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	header {
+		background-image: url(
+			'jessmccay.github.io/images/IMG_8472.jpg'
+		);
+	}
 /* Box Model */
 
 	*, *:before, *:after {

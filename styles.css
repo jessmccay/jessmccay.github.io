@@ -1,0 +1,34 @@
+/* styles.css */
+
+body {
+    padding: 0% 20% 5% 20%;
+}
+.custom-body {
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: #fdfdfd;
+    color: #1a1a1a;
+  }
+  
+  .custom-header {
+    /* background-image: url('./images/IMG_8472.jpg'); */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .navigate-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10%;
+    border-radius: 10%;
+    padding: 0 15% 10% 15%;
+
+  }
+
+
+      
+     
+      
+      
+  
+      
+      
