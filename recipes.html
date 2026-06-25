@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Low Carb Recipes — Jessica McCay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --rose:       #c9838a;
+        --rose-light: #f0d6d8;
+        --blush:      #f7eeee;
+        --cream:      #fdf9f6;
+        --mauve:      #8c5e63;
+        --dark:       #2b1f21;
+        --mid:        #6b5357;
+        --gold:       #c4a882;
+        --white:      #ffffff;
+        --herb:       #7a9e7e;
+        --herb-light: #eaf2ea;
+        --font-serif: 'Cormorant Garamond', Georgia, serif;
+        --font-sans:  'Jost', system-ui, sans-serif;
+        --max-w: 1140px;
+        --radius: 16px;
+        --t: 0.35s ease;
+      }
+
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font-sans); background: var(--cream); color: var(--dark); font-size: 16px; line-height: 1.7; }
+      img  { max-width: 100%; display: block; }
+      a    { text-decoration: none; color: inherit; }
+      p    { color: var(--mid); margin-bottom: 1rem; }
+      p:last-child { margin-bottom: 0; }
+      h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
+      em { font-style: italic; color: var(--rose); }
+
+      .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+      /* ── Nav ── */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 2.5rem;
+        background: rgba(253,249,246,0.94);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 1px 0 rgba(201,131,138,0.12);
+      }
+      .nav__logo { font-family: var(--font-serif); font-size: 1.3rem; color: var(--dark); }
+      .nav__back {
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: var(--mid);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: color var(--t);
+      }
+      .nav__back:hover { color: var(--rose); }
+
+      /* ── Hero ── */
+      .page-hero {
+        background: var(--herb-light);
+        padding: 5rem 2rem 4rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(122,158,126,0.2);
+      }
+      .page-hero__label {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--herb);
+        margin-bottom: 0.75rem;
+      }
+      .page-hero__title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      .page-hero__sub {
+        max-width: 560px;
+        margin: 0 auto;
+        color: var(--mid);
+        font-size: 1.05rem;
+      }
+
+      /* ── Filters ── */
+      .filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 2.5rem 2rem;
+      }
+      .filter-btn {
+        padding: 0.45rem 1.1rem;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        border: 1.5px solid var(--rose-light);
+        background: transparent;
+        color: var(--mid);
+        font-family: var(--font-sans);
+        transition: var(--t);
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--rose);
+        border-color: var(--rose);
+        color: var(--white);
+      }
+
+      /* ── Recipe Grid ── */
+      .recipes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+        padding: 0 2rem 6rem;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      .recipe-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(140,94,99,0.07);
+        transition: transform var(--t), box-shadow var(--t);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+      }
+      .recipe-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 40px rgba(140,94,99,0.14);
+      }
+      .recipe-card__img-wrap {
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: var(--herb-light);
+        position: relative;
+      }
+      .recipe-card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .recipe-card:hover .recipe-card__img { transform: scale(1.05); }
+
+      .recipe-card__placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, var(--herb-light), var(--blush));
+      }
+      .recipe-card__placeholder-icon {
+        font-size: 3rem;
+        opacity: 0.5;
+      }
+      .recipe-card__placeholder-text {
+        font-size: 0.72rem;
+        color: var(--mid);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        opacity: 0.6;
+      }
+
+      .recipe-card__badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: var(--rose);
+        color: var(--white);
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.65rem;
+        border-radius: 50px;
+      }
+
+      .recipe-card__body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+      .recipe-card__category {
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--herb);
+        margin-bottom: 0.4rem;
+      }
+      .recipe-card__title { font-size: 1.3rem; color: var(--dark); margin-bottom: 0.6rem; }
+      .recipe-card__desc { font-size: 0.88rem; color: var(--mid); flex: 1; margin-bottom: 1rem; }
+
+      .recipe-card__meta {
+        display: flex;
+        gap: 1.25rem;
+        font-size: 0.78rem;
+        color: var(--mid);
+        border-top: 1px solid var(--rose-light);
+        padding-top: 0.75rem;
+        margin-top: auto;
+      }
+      .recipe-card__meta-item { display: flex; align-items: center; gap: 0.3rem; }
+      .recipe-card__meta-icon { opacity: 0.6; }
+
+      /* ── Modal ── */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(43,31,33,0.6);
+        backdrop-filter: blur(4px);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .modal-overlay.open { display: flex; }
+
+      .modal {
+        background: var(--white);
+        border-radius: var(--radius);
+        max-width: 720px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .modal__img {
+        width: 100%;
+        aspect-ratio: 16/7;
+        object-fit: cover;
+        background: var(--herb-light);
+      }
+      .modal__img-placeholder {
+        width: 100%;
+        aspect-ratio: 16/7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        background: linear-gradient(135deg, var(--herb-light), var(--blush));
+      }
+      .modal__body { padding: 2rem; }
+      .modal__category {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--herb);
+        margin-bottom: 0.5rem;
+      }
+      .modal__title { font-size: 2rem; color: var(--dark); margin-bottom: 0.5rem; }
+      .modal__desc { color: var(--mid); margin-bottom: 1.5rem; }
+
+      .modal__meta {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: var(--herb-light);
+        border-radius: calc(var(--radius) - 4px);
+        font-size: 0.85rem;
+        color: var(--mid);
+      }
+      .modal__meta-item strong { color: var(--dark); display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.15rem; }
+
+      .modal__section-title {
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--rose-light);
+      }
+
+      .modal__ingredients {
+        list-style: none;
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+      .modal__ingredients li {
+        font-size: 0.9rem;
+        color: var(--mid);
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .modal__ingredients li::before {
+        content: '·';
+        color: var(--rose);
+        flex-shrink: 0;
+        margin-top: 0.05rem;
+      }
+
+      .modal__steps { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+      .modal__step { display: flex; gap: 1rem; align-items: flex-start; }
+      .modal__step-num {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--rose);
+        line-height: 1;
+        flex-shrink: 0;
+        opacity: 0.5;
+        width: 1.5rem;
+        text-align: right;
+      }
+      .modal__step-text { font-size: 0.9rem; color: var(--mid); padding-top: 0.1rem; }
+
+      .modal__close {
+        position: absolute;
+        top: 1rem; right: 1rem;
+        background: rgba(255,255,255,0.9);
+        border: none;
+        border-radius: 50%;
+        width: 36px; height: 36px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        transition: background var(--t);
+        z-index: 10;
+      }
+      .modal__close:hover { background: var(--blush); }
+
+      /* ── Footer ── */
+      .footer {
+        background: var(--dark);
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.3);
+        letter-spacing: 0.05em;
+      }
+
+      @media (max-width: 640px) {
+        .recipes-grid { grid-template-columns: 1fr; padding: 0 1rem 4rem; }
+        .modal__ingredients { grid-template-columns: 1fr; }
+        .modal__body { padding: 1.25rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <a class="nav__logo" href="index.html">Jessica McCay</a>
+      <a class="nav__back" href="index.html">← Back to Home</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <span class="page-hero__label">From My Kitchen</span>
+      <h1 class="page-hero__title">Low Carb <em>Recipes</em></h1>
+      <p class="page-hero__sub">Real food, made with care. These are the meals I actually cook — satisfying, flavorful, and low in carbs without feeling like you're missing out.</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Recipes</button>
+      <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+      <button class="filter-btn" data-filter="lunch">Lunch</button>
+      <button class="filter-btn" data-filter="dinner">Dinner</button>
+      <button class="filter-btn" data-filter="snack">Snacks</button>
+    </div>
+
+    <!-- RECIPE GRID -->
+    <div class="recipes-grid" id="recipes-grid"></div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="modal">
+        <button class="modal__close" id="modal-close">✕</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 Jessica McCay &nbsp;·&nbsp; Made with care</p>
+    </footer>
+
+    <script>
+      const recipes = [
+        {
+          id: 1,
+          title: "Cauliflower Fried Rice",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "All the comfort of fried rice with none of the carbs. Riced cauliflower, veggies, and soy sauce come together in under 20 minutes.",
+          time: "20 min",
+          servings: "4",
+          carbs: "8g net",
+          placeholder: "🍚",
+          ingredients: [
+            "1 head cauliflower, riced",
+            "2 eggs, beaten",
+            "1 cup frozen peas & carrots",
+            "3 cloves garlic, minced",
+            "3 tbsp soy sauce or coconut aminos",
+            "1 tbsp sesame oil",
+            "2 green onions, sliced",
+            "2 tbsp avocado oil",
+            "Salt & pepper to taste"
+          ],
+          steps: [
+            "Rice the cauliflower in a food processor or grate by hand. Pat dry with paper towels — this step matters!",
+            "Heat avocado oil in a large skillet or wok over high heat. Add garlic and cook 30 seconds.",
+            "Add frozen vegetables and cook 2-3 minutes until thawed and starting to brown.",
+            "Push everything to the side. Add eggs and scramble, then mix into the vegetables.",
+            "Add cauliflower rice and stir-fry 5-6 minutes until golden.",
+            "Add soy sauce and sesame oil, toss to combine. Top with green onions and serve."
+          ]
+        },
+        {
+          id: 2,
+          title: "Egg & Avocado Breakfast Bowl",
+          category: "breakfast",
+          categoryLabel: "Breakfast",
+          description: "A protein-packed morning bowl that keeps you full for hours. Creamy avocado, perfectly cooked eggs, and a little kick of everything seasoning.",
+          time: "10 min",
+          servings: "1",
+          carbs: "4g net",
+          placeholder: "🥑",
+          ingredients: [
+            "2 large eggs",
+            "1 ripe avocado",
+            "2 tbsp olive oil",
+            "Everything bagel seasoning",
+            "Pinch of red pepper flakes",
+            "Squeeze of lemon juice",
+            "Salt & pepper"
+          ],
+          steps: [
+            "Heat olive oil in a small skillet over medium heat.",
+            "Fry eggs to your preference — runny yolk recommended.",
+            "Halve avocado, remove pit, and scoop flesh into a bowl. Season with lemon juice, salt, and pepper.",
+            "Top with fried eggs, everything bagel seasoning, and red pepper flakes. Eat immediately."
+          ]
+        },
+        {
+          id: 3,
+          title: "Zucchini Noodles with Pesto",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Light, fresh, and satisfying. Spiralized zucchini tossed with homemade basil pesto and topped with pine nuts and parmesan.",
+          time: "15 min",
+          servings: "2",
+          carbs: "6g net",
+          placeholder: "🌿",
+          ingredients: [
+            "3 medium zucchini, spiralized",
+            "½ cup fresh basil, packed",
+            "¼ cup pine nuts (plus more to top)",
+            "¼ cup parmesan, grated",
+            "2 cloves garlic",
+            "¼ cup olive oil",
+            "Juice of half a lemon",
+            "Salt & pepper"
+          ],
+          steps: [
+            "Make pesto: blend basil, pine nuts, parmesan, garlic, and lemon juice. Stream in olive oil until smooth. Season to taste.",
+            "Spiralize zucchini. Salt lightly and let sit 5 minutes, then pat dry to remove excess moisture.",
+            "Toss zucchini noodles with pesto — no cooking needed, or sauté 1-2 minutes if you prefer warm.",
+            "Top with extra pine nuts, parmesan, and fresh basil. Serve immediately."
+          ]
+        },
+        {
+          id: 4,
+          title: "Taco Lettuce Wraps",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Seasoned ground beef tucked into crisp butter lettuce cups with all your favorite toppings. Taco Tuesday, reinvented.",
+          time: "25 min",
+          servings: "4",
+          carbs: "5g net",
+          placeholder: "🌮",
+          ingredients: [
+            "1 lb ground beef",
+            "1 head butter lettuce",
+            "1 tsp cumin",
+            "1 tsp chili powder",
+            "½ tsp garlic powder",
+            "½ tsp onion powder",
+            "Salt & pepper",
+            "Toppings: shredded cheese, sour cream, salsa, avocado, cilantro"
+          ],
+          steps: [
+            "Brown ground beef in a skillet over medium-high heat, breaking it up as it cooks.",
+            "Add spices and cook 2 more minutes. Taste and adjust seasoning.",
+            "Separate lettuce leaves into cups and arrange on a platter.",
+            "Spoon meat mixture into lettuce cups. Set out toppings and let everyone assemble their own."
+          ]
+        },
+        {
+          id: 5,
+          title: "Cucumber Smoked Salmon Bites",
+          category: "snack",
+          categoryLabel: "Snack",
+          description: "Elegant little bites that come together in minutes. Perfect for snacking or serving guests. Cream cheese, smoked salmon, capers — yes please.",
+          time: "10 min",
+          servings: "4",
+          carbs: "2g net",
+          placeholder: "🥒",
+          ingredients: [
+            "1 large English cucumber",
+            "4 oz smoked salmon",
+            "4 oz cream cheese, softened",
+            "1 tbsp fresh dill",
+            "1 tbsp capers",
+            "1 tsp lemon zest",
+            "Salt & pepper"
+          ],
+          steps: [
+            "Slice cucumber into ½-inch rounds.",
+            "Mix cream cheese with dill and lemon zest until smooth. Season with salt and pepper.",
+            "Spread cream cheese on each cucumber round.",
+            "Top with a small piece of smoked salmon and a few capers. Garnish with fresh dill."
+          ]
+        },
+        {
+          id: 6,
+          title: "Sheet Pan Chicken & Vegetables",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "One pan, minimal cleanup, maximum flavor. Crispy chicken thighs roasted alongside seasonal vegetables with garlic and herbs.",
+          time: "45 min",
+          servings: "4",
+          carbs: "9g net",
+          placeholder: "🍗",
+          ingredients: [
+            "4 bone-in chicken thighs",
+            "1 zucchini, chunked",
+            "1 bell pepper, chunked",
+            "1 cup cherry tomatoes",
+            "1 red onion, wedged",
+            "4 cloves garlic",
+            "3 tbsp olive oil",
+            "1 tsp Italian seasoning",
+            "Salt, pepper, smoked paprika"
+          ],
+          steps: [
+            "Preheat oven to 425°F. Line a sheet pan with foil.",
+            "Toss vegetables with 2 tbsp olive oil, garlic, Italian seasoning, salt and pepper. Spread on pan.",
+            "Pat chicken dry. Rub with remaining oil, smoked paprika, salt and pepper. Place skin-side up on top of vegetables.",
+            "Roast 35-40 minutes until chicken skin is crispy and internal temp reaches 165°F.",
+            "Rest 5 minutes before serving."
+          ]
+        },
+        {
+          id: 7,
+          title: "Egg Roll in a Bowl",
+          category: "lunch",
+          categoryLabel: "Lunch",
+          description: "All the filling of an egg roll without the wrapper. Ground pork, cabbage, and ginger in a savory sauce — ready in 15 minutes.",
+          time: "15 min",
+          servings: "4",
+          carbs: "7g net",
+          placeholder: "🥬",
+          ingredients: [
+            "1 lb ground pork",
+            "1 bag coleslaw mix (or ½ head shredded cabbage)",
+            "3 cloves garlic, minced",
+            "1 tbsp fresh ginger, grated",
+            "3 tbsp soy sauce or coconut aminos",
+            "1 tbsp sesame oil",
+            "2 green onions",
+            "Sriracha to serve"
+          ],
+          steps: [
+            "Brown ground pork in a large skillet over medium-high heat. Drain excess fat.",
+            "Add garlic and ginger, cook 1 minute until fragrant.",
+            "Add coleslaw mix and stir-fry 3-4 minutes until slightly wilted.",
+            "Add soy sauce and sesame oil. Toss to combine and cook 1 more minute.",
+            "Top with green onions and a drizzle of sriracha."
+          ]
+        },
+        {
+          id: 12,
+          title: "Creamy Tomato Sausage Sauce",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Savory Italian sausage in a rich, silky tomato cream sauce over keto spaghetti. Bold, comforting, and on the table in under 30 minutes.",
+          time: "25 min",
+          servings: "4",
+          carbs: "8g net",
+          placeholder: "🍝",
+          ingredients: [
+            "1 lb Italian sausage (mild or hot), casings removed",
+            "4 servings keto spaghetti, cooked per package",
+            "1 can (14oz) crushed tomatoes",
+            "½ cup heavy cream",
+            "3 cloves garlic, minced",
+            "½ onion, diced",
+            "1 tsp Italian seasoning",
+            "Pinch of red pepper flakes",
+            "2 tbsp olive oil",
+            "¼ cup parmesan, grated",
+            "Fresh basil to finish",
+            "Salt & pepper"
+          ],
+          steps: [
+            "Cook keto spaghetti according to package directions. Drain and set aside.",
+            "Heat olive oil in a large skillet over medium-high heat. Add onion and cook 3 minutes until softened.",
+            "Add sausage, breaking it up as it browns. Cook until fully cooked through, about 5-6 minutes.",
+            "Add garlic, Italian seasoning, and red pepper flakes. Cook 1 minute until fragrant.",
+            "Pour in crushed tomatoes. Stir to combine and simmer 5 minutes.",
+            "Reduce heat to medium-low. Stir in heavy cream and let the sauce simmer gently 3-4 minutes until it thickens and turns a beautiful rose color.",
+            "Season with salt and pepper. Add keto spaghetti and toss to coat.",
+            "Serve topped with parmesan and fresh basil."
+          ]
+        },
+        {
+          id: 9,
+          title: "Spaghetti with Creamy Portobello Sauce",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Rich, velvety portobello mushroom cream sauce over keto pasta. Earthy, indulgent, and completely satisfying — all the comfort, none of the carb guilt.",
+          time: "30 min",
+          servings: "2",
+          carbs: "10g net",
+          placeholder: "🍄",
+          ingredients: [
+            "2 servings keto pasta, cooked per package",
+            "3 large portobello mushrooms, sliced",
+            "3 cloves garlic, minced",
+            "1 shallot, finely diced",
+            "½ cup heavy cream",
+            "¼ cup parmesan, grated",
+            "2 tbsp butter",
+            "1 tbsp olive oil",
+            "Fresh thyme or Italian seasoning",
+            "Salt, pepper, fresh parsley to finish"
+          ],
+          steps: [
+            "Cook keto pasta according to package directions. Drain and set aside.",
+            "Heat butter and olive oil in a large skillet over medium-high heat. Add shallot and cook 2 minutes until softened.",
+            "Add portobello slices in a single layer. Don't stir for 2-3 minutes — let them get golden and caramelized. Then flip and cook another 2 minutes.",
+            "Add garlic and thyme, cook 1 minute until fragrant.",
+            "Pour in heavy cream and bring to a gentle simmer. Cook 3-4 minutes until slightly thickened.",
+            "Stir in parmesan until melted and sauce is creamy. Season generously with salt and pepper.",
+            "Add cooked keto pasta to the pan and toss to coat in the sauce.",
+            "Serve immediately topped with extra parmesan and fresh parsley."
+          ]
+        },
+        {
+          id: 10,
+          title: "Cheesy Beef Pasta",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Comfort food at its finest. Seasoned ground beef in a rich tomato sauce, tossed with keto pasta and blanketed in melted cheese.",
+          time: "30 min",
+          servings: "4",
+          carbs: "9g net",
+          placeholder: "🧀",
+          ingredients: [
+            "1 lb ground beef",
+            "4 servings keto pasta, cooked per package",
+            "1 can (14oz) crushed tomatoes",
+            "3 cloves garlic, minced",
+            "½ onion, diced",
+            "1 tsp Italian seasoning",
+            "½ tsp red pepper flakes",
+            "1 cup shredded mozzarella",
+            "¼ cup parmesan, grated",
+            "2 tbsp olive oil",
+            "Salt & pepper",
+            "Fresh basil to serve"
+          ],
+          steps: [
+            "Cook keto pasta according to package directions. Drain and set aside.",
+            "Heat olive oil in a large skillet over medium-high. Add onion and cook 3 minutes until soft.",
+            "Add ground beef, breaking it up as it browns. Cook until no pink remains. Drain excess fat.",
+            "Add garlic and Italian seasoning, cook 1 minute.",
+            "Pour in crushed tomatoes, add red pepper flakes, season with salt and pepper. Simmer 10 minutes until sauce thickens.",
+            "Add keto pasta to the sauce and toss gently to combine.",
+            "Sprinkle mozzarella and parmesan over the top. Cover pan 2 minutes to melt the cheese, or broil 3 minutes for a golden top.",
+            "Serve straight from the pan with fresh basil."
+          ]
+        },
+        {
+          id: 11,
+          title: "Salmon with Mushrooms & Spinach",
+          category: "dinner",
+          categoryLabel: "Dinner",
+          description: "Pan-seared salmon on a bed of garlicky sautéed mushrooms and wilted spinach. Elegant enough for guests, easy enough for a weeknight.",
+          time: "25 min",
+          servings: "2",
+          carbs: "5g net",
+          placeholder: "🐟",
+          ingredients: [
+            "2 salmon fillets (6oz each)",
+            "2 cups cremini or baby bella mushrooms, sliced",
+            "3 cups fresh spinach",
+            "3 cloves garlic, minced",
+            "2 tbsp butter",
+            "1 tbsp olive oil",
+            "Juice of half a lemon",
+            "Fresh dill or thyme",
+            "Salt, pepper, smoked paprika"
+          ],
+          steps: [
+            "Pat salmon dry. Season both sides with salt, pepper, and a pinch of smoked paprika.",
+            "Heat olive oil in a skillet over medium-high heat until shimmering. Place salmon skin-side up and cook 4 minutes without moving.",
+            "Flip salmon. Cook another 3-4 minutes until cooked through and the skin is crispy. Remove to a plate.",
+            "In the same pan, add butter and mushrooms. Cook 4-5 minutes, stirring occasionally, until golden and any liquid has evaporated.",
+            "Add garlic and cook 1 minute until fragrant.",
+            "Add spinach in handfuls, tossing until just wilted — about 2 minutes. Season with salt, pepper, and a squeeze of lemon.",
+            "Plate the mushrooms and spinach, lay salmon on top. Finish with a little more lemon and fresh herbs."
+          ]
+        },
+        {
+          id: 8,
+          title: "Almond Flour Pancakes",
+          category: "breakfast",
+          categoryLabel: "Breakfast",
+          description: "Fluffy, golden, and actually satisfying. These low carb pancakes taste like the real thing — serve with butter and a drizzle of sugar-free syrup.",
+          time: "20 min",
+          servings: "2",
+          carbs: "5g net",
+          placeholder: "🥞",
+          ingredients: [
+            "1 cup almond flour",
+            "2 large eggs",
+            "¼ cup unsweetened almond milk",
+            "1 tsp baking powder",
+            "1 tbsp sweetener (monk fruit or erythritol)",
+            "1 tsp vanilla extract",
+            "Pinch of salt",
+            "Butter for cooking"
+          ],
+          steps: [
+            "Whisk together almond flour, baking powder, sweetener, and salt.",
+            "In a separate bowl, whisk eggs, almond milk, and vanilla.",
+            "Combine wet and dry ingredients. Let batter rest 2 minutes to thicken.",
+            "Heat butter in a skillet over medium-low heat. Pour ¼ cup batter per pancake.",
+            "Cook until bubbles form and edges look set, about 2-3 minutes. Flip carefully and cook 1-2 more minutes.",
+            "Serve with butter and sugar-free maple syrup."
+          ]
+        }
+      ];
+
+      const grid = document.getElementById('recipes-grid');
+      const overlay = document.getElementById('modal-overlay');
+      const modalContent = document.getElementById('modal-content');
+
+      function renderCard(recipe) {
+        const card = document.createElement('div');
+        card.className = 'recipe-card';
+        card.dataset.category = recipe.category;
+        card.innerHTML = `
+          <div class="recipe-card__img-wrap">
+            <div class="recipe-card__placeholder">
+              <span class="recipe-card__placeholder-icon">${recipe.placeholder}</span>
+              <span class="recipe-card__placeholder-text">Photo coming soon</span>
+            </div>
+            <span class="recipe-card__badge">Low Carb</span>
+          </div>
+          <div class="recipe-card__body">
+            <span class="recipe-card__category">${recipe.categoryLabel}</span>
+            <h3 class="recipe-card__title">${recipe.title}</h3>
+            <p class="recipe-card__desc">${recipe.description}</p>
+            <div class="recipe-card__meta">
+              <span class="recipe-card__meta-item"><span class="recipe-card__meta-icon">⏱</span> ${recipe.time}</span>
+              <span class="recipe-card__meta-item"><span class="recipe-card__meta-icon">👤</span> Serves ${recipe.servings}</span>
+              <span class="recipe-card__meta-item"><span class="recipe-card__meta-icon">🌿</span> ${recipe.carbs} carbs</span>
+            </div>
+          </div>`;
+        card.addEventListener('click', () => openModal(recipe));
+        return card;
+      }
+
+      function renderAll(filter = 'all') {
+        grid.innerHTML = '';
+        recipes
+          .filter(r => filter === 'all' || r.category === filter)
+          .forEach(r => grid.appendChild(renderCard(r)));
+      }
+
+      function openModal(recipe) {
+        modalContent.innerHTML = `
+          <div class="modal__img-placeholder">${recipe.placeholder}</div>
+          <div class="modal__body">
+            <span class="modal__category">${recipe.categoryLabel}</span>
+            <h2 class="modal__title">${recipe.title}</h2>
+            <p class="modal__desc">${recipe.description}</p>
+            <div class="modal__meta">
+              <div class="modal__meta-item"><strong>Time</strong>${recipe.time}</div>
+              <div class="modal__meta-item"><strong>Serves</strong>${recipe.servings}</div>
+              <div class="modal__meta-item"><strong>Net Carbs</strong>${recipe.carbs}</div>
+            </div>
+            <p class="modal__section-title">Ingredients</p>
+            <ul class="modal__ingredients">
+              ${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}
+            </ul>
+            <p class="modal__section-title">Instructions</p>
+            <ol class="modal__steps">
+              ${recipe.steps.map((s, i) => `<li class="modal__step"><span class="modal__step-num">${i+1}</span><span class="modal__step-text">${s}</span></li>`).join('')}
+            </ol>
+          </div>`;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+      function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderAll(btn.dataset.filter);
+        });
+      });
+
+      renderAll();
+    </script>
+  </body>
+</html>
