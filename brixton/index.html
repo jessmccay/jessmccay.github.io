@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brixton's World</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0f0f1a;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Stars background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 40%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 85%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 50%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 15%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 35%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 55%, #fff 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #1a0033 0%, #0f0f1a 100%);
+    }
+
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(1.4rem, 5vw, 2.8rem);
+      color: #ffde00;
+      text-shadow: 4px 4px 0 #cc0000, 8px 8px 0 #000;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #aaa;
+      font-weight: 700;
+    }
+
+    /* Pixel art Pokeball */
+    .pokeball {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      position: relative;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, #cc0000 50%, #fff 50%);
+      border: 4px solid #222;
+      box-shadow: 0 0 24px #ffde0088;
+    }
+    .pokeball::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 4px;
+      background: #222;
+    }
+    .pokeball::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #222;
+    }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    nav a {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.55rem;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: 2px solid;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    nav a:hover { transform: translateY(-3px); box-shadow: 0 6px 0 #000; }
+
+    .nav-pokemon { background: #ffde00; color: #222; border-color: #cc0000; }
+    .nav-minecraft { background: #5d9e3e; color: #fff; border-color: #3a6b26; }
+    .nav-amongus  { background: #c51111; color: #fff; border-color: #7a0000; }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 32px;
+      border: 4px solid;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Pokemon card */
+    .card-pokemon {
+      background: linear-gradient(135deg, #1a0a00, #2a1500);
+      border-color: #ffde00;
+      box-shadow: 0 0 30px #ffde0044;
+    }
+    .card-pokemon::before {
+      background-image: radial-gradient(circle, #ffde00 1px, transparent 1px);
+    }
+
+    /* Minecraft card */
+    .card-minecraft {
+      background: linear-gradient(135deg, #0a1a00, #0f2a05);
+      border-color: #5d9e3e;
+      box-shadow: 0 0 30px #5d9e3e44;
+    }
+    .card-minecraft::before {
+      background-image:
+        linear-gradient(#5d9e3e22 1px, transparent 1px),
+        linear-gradient(90deg, #5d9e3e22 1px, transparent 1px);
+    }
+
+    /* Among Us card */
+    .card-amongus {
+      background: linear-gradient(135deg, #1a0000, #2a0505);
+      border-color: #c51111;
+      box-shadow: 0 0 30px #c5111144;
+    }
+    .card-amongus::before {
+      background-image: radial-gradient(circle, #c51111 1px, transparent 1px);
+    }
+
+    .card-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(0.9rem, 3vw, 1.3rem);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-pokemon .card-title  { color: #ffde00; }
+    .card-minecraft .card-title { color: #7ecb56; }
+    .card-amongus .card-title  { color: #ff4444; }
+
+    .card-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    .fav-list {
+      list-style: none;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fav-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #eee;
+    }
+
+    .fav-list li span.icon { font-size: 1.4rem; }
+
+    /* Among Us crewmate SVG */
+    .crewmate {
+      display: inline-block;
+      width: 60px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* Pixel art grass block */
+    .grass-block {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(to bottom, #5d9e3e 30%, #7b5e3a 30%);
+      border: 2px solid #333;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
+      vertical-align: middle;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px 20px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.55rem;
+      color: #444;
+      line-height: 2;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+    }
+    footer a:hover { color: #aaa; }
+
+    /* bounce animation on emoji icons */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .bounce { display: inline-block; animation: bounce 1.2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="pokeball"></div>
+    <h1>BRIXTON'S<br>WORLD</h1>
+    <p>Welcome to my corner of the internet ⚡</p>
+  </header>
+
+  <nav>
+    <a class="nav-pokemon"  href="#pokemon">⚡ Pokémon</a>
+    <a class="nav-minecraft" href="#minecraft">🌲 Minecraft</a>
+    <a class="nav-amongus"  href="#amongus">🔴 Among Us</a>
+  </nav>
+
+  <main>
+
+    <!-- POKEMON -->
+    <section class="card card-pokemon" id="pokemon">
+      <h2 class="card-title">
+        <span class="bounce">⚡</span> Pokémon
+      </h2>
+      <div class="card-body">
+        <p>Gotta catch 'em all! Here are some of my favorites:</p>
+        <ul class="fav-list">
+          <li><span class="icon">🟡</span> Pikachu — the original legend</li>
+          <li><span class="icon">🔥</span> Charizard — fire and flying, unstoppable</li>
+          <li><span class="icon">💜</span> Gengar — spooky and awesome</li>
+          <li><span class="icon">🌊</span> Gyarados — went from zero to hero</li>
+          <li><span class="icon">❄️</span> Eevee — can evolve into anything!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MINECRAFT -->
+    <section class="card card-minecraft" id="minecraft">
+      <h2 class="card-title">
+        <span class="bounce">🌲</span> Minecraft
+      </h2>
+      <div class="card-body">
+        <p>Build, explore, survive — Minecraft does it all. My favorite things to do:</p>
+        <ul class="fav-list">
+          <li><span class="icon">🏠</span> Build huge houses and castles</li>
+          <li><span class="icon">⚔️</span> Fight the Ender Dragon</li>
+          <li><span class="icon">💎</span> Mine for diamonds</li>
+          <li><span class="icon">🐺</span> Tame wolves and cats</li>
+          <li><span class="icon">🗺️</span> Explore new biomes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- AMONG US -->
+    <section class="card card-amongus" id="amongus">
+      <h2 class="card-title">
+        <span class="bounce">🔴</span> Among Us
+      </h2>
+      <div class="card-body">
+        <p>Who is the impostor?! My Among Us stats and facts:</p>
+        <ul class="fav-list">
+          <li><span class="icon">🔴</span> Favorite color: Red (classic)</li>
+          <li><span class="icon">🔪</span> Best impostor trick: pretend to do tasks</li>
+          <li><span class="icon">🗣️</span> Favorite move: emergency meeting!</li>
+          <li><span class="icon">🌌</span> Favorite map: The Skeld</li>
+          <li><span class="icon">🏆</span> Win condition: trust nobody</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>made with ❤️ for brixton</p>
+    <br>
+    <a href="/">← back to mom's site</a>
+  </footer>
+
+</body>
+</html>
