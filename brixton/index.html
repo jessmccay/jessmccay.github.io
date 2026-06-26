@@ -59,38 +59,38 @@
       font-weight: 700;
     }
 
-    /* Pixel art Pokeball */
-    .pokeball {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 24px;
+    /* Pikachu */
+    .pikachu { width: 110px; margin: 0 auto 24px; filter: drop-shadow(0 0 18px #ffde0099); }
+
+    /* Pokeball (small, inside card) */
+    .pokeball-small {
+      width: 32px; height: 32px;
+      display: inline-block;
       position: relative;
       border-radius: 50%;
       background: linear-gradient(to bottom, #cc0000 50%, #fff 50%);
-      border: 4px solid #222;
-      box-shadow: 0 0 24px #ffde0088;
+      border: 3px solid #222;
+      vertical-align: middle;
+      margin-right: 8px;
+      flex-shrink: 0;
     }
-    .pokeball::before {
+    .pokeball-small::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      height: 4px;
+      width: 100%; height: 3px;
       background: #222;
     }
-    .pokeball::after {
+    .pokeball-small::after {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
+      width: 10px; height: 10px;
       border-radius: 50%;
       background: #fff;
-      border: 4px solid #222;
+      border: 3px solid #222;
     }
 
     nav {
@@ -264,7 +264,34 @@
 <body>
 
   <header>
-    <div class="pokeball"></div>
+    <svg class="pikachu" viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg">
+      <!-- ears -->
+      <polygon points="22,48 32,8 48,42" fill="#ffde00" stroke="#222" stroke-width="2"/>
+      <polygon points="27,44 34,16 45,40" fill="#1a1a00"/>
+      <polygon points="62,42 78,8 88,48" fill="#ffde00" stroke="#222" stroke-width="2"/>
+      <polygon points="65,40 76,16 83,44" fill="#1a1a00"/>
+      <!-- body -->
+      <ellipse cx="55" cy="78" rx="30" ry="22" fill="#ffde00" stroke="#222" stroke-width="2"/>
+      <!-- head -->
+      <ellipse cx="55" cy="58" rx="34" ry="30" fill="#ffde00" stroke="#222" stroke-width="2"/>
+      <!-- cheeks -->
+      <ellipse cx="28" cy="65" rx="10" ry="7" fill="#cc0000" opacity="0.85"/>
+      <ellipse cx="82" cy="65" rx="10" ry="7" fill="#cc0000" opacity="0.85"/>
+      <!-- eyes -->
+      <ellipse cx="42" cy="52" rx="6" ry="7" fill="#1a1a00"/>
+      <ellipse cx="68" cy="52" rx="6" ry="7" fill="#1a1a00"/>
+      <ellipse cx="44" cy="50" rx="2" ry="2" fill="#fff"/>
+      <ellipse cx="70" cy="50" rx="2" ry="2" fill="#fff"/>
+      <!-- nose -->
+      <ellipse cx="55" cy="61" rx="2.5" ry="1.5" fill="#1a1a00"/>
+      <!-- mouth -->
+      <path d="M48,66 Q55,73 62,66" fill="none" stroke="#1a1a00" stroke-width="2" stroke-linecap="round"/>
+      <!-- tail hint -->
+      <path d="M82,88 Q100,75 98,60 Q96,50 88,55" fill="none" stroke="#ffde00" stroke-width="6" stroke-linecap="round"/>
+      <path d="M82,88 Q100,75 98,60 Q96,50 88,55" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+      <!-- belly -->
+      <ellipse cx="55" cy="82" rx="16" ry="10" fill="#f5c842" opacity="0.5"/>
+    </svg>
     <h1>BRIXTON'S<br>WORLD</h1>
     <p>Welcome to my corner of the internet ⚡</p>
   </header>
@@ -280,7 +307,7 @@
     <!-- POKEMON -->
     <section class="card card-pokemon" id="pokemon">
       <h2 class="card-title">
-        <span class="bounce">⚡</span> Pokémon
+        <span class="pokeball-small"></span> Pokémon
       </h2>
       <div class="card-body">
         <p>Gotta catch 'em all! Here are some of my favorites:</p>
